@@ -17,5 +17,10 @@ if choice=="INSERT":
     if st.button("SAVE"):
         cursor.execute("""INSERT INTO employee(id,name,sal)VALUES(?,?,?)""",(eid,name,sal))
         conn.commit()
-        st.success("EMPLOYEE ADDED SUCESSFULLY")            
+        st.success("EMPLOYEE ADDED SUCESSFULLY")   
+
+if choice=="VIEW":
+    data=cursor.execute("SELECT * FROM employee")
+    st.dataframe(data)
+
 
